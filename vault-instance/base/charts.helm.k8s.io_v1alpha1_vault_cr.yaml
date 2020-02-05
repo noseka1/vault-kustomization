@@ -1,7 +1,7 @@
 apiVersion: charts.helm.k8s.io/v1alpha1
 kind: Vault
 metadata:
-  name: example-vault
+  name: vault
 spec:
   # Default values copied from <project_dir>/helm-charts/vault/values.yaml
 
@@ -38,7 +38,7 @@ spec:
     annotations: {}
     auditStorage:
       accessMode: ReadWriteOnce
-      enabled: false
+      enabled: true
       size: 10Gi
       storageClass: null
     authDelegator:
@@ -52,7 +52,8 @@ spec:
       enabled: false
     extraArgs: ""
     extraContainers: null
-    extraEnvironmentVars: {}
+    extraEnvironmentVars:
+      VAULT_LOG_LEVEL: debug
     extraLabels: {}
     extraSecretEnvironmentVars: []
     extraVolumes: []
@@ -137,7 +138,7 @@ spec:
     tolerations: {}
   ui:
     annotations: {}
-    enabled: false
+    enabled: true
     externalPort: 8200
     serviceNodePort: null
     serviceType: ClusterIP
