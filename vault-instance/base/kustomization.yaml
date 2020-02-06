@@ -1,6 +1,8 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
+namespace: vault
+
 resources:
 - charts.helm.k8s.io_v1alpha1_vault_cr.yaml
 - vault-route.yaml
